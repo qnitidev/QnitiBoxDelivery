@@ -4,29 +4,27 @@ public class User {
 
     //private int userid;
     private int delivererID;
-    private String delivererUserName;
     private String delivererName;
     private String delivererEmail;
-    private String delivererPhone;
     private String delivererLocation;
+    private String delivererPhone;
+    private String activeStatus;
 
-    public User(int delivererID, String delivererUserName, String delivererName, String delivererEmail, String delivererPhone, String delivererLocation) {
+
+    public User(int delivererID, String delivererName, String delivererEmail, String delivererLocation, String delivererPhone, String activeStatus) {
 
         this.delivererID = delivererID;
-        this.delivererUserName = delivererUserName;
         this.delivererName = delivererName;
         this.delivererEmail = delivererEmail;
-        this.delivererPhone = delivererPhone;
         this.delivererLocation = delivererLocation;
+        this.delivererPhone = delivererPhone;
+        this.activeStatus = activeStatus;
+
 
     }
 
     public int getDelivererID() {
         return delivererID;
-    }
-
-    public String getDelivererUserName() {
-        return delivererUserName;
     }
 
     public String getDelivererName() {
@@ -37,13 +35,15 @@ public class User {
         return delivererEmail;
     }
 
+    public String getDelivererLocation() {
+        return delivererLocation;
+    }
 
     public String getDelivererPhone() {
         return delivererPhone;
     }
-
-    public String getDelivererLocation() {
-        return delivererLocation;
+    public String getActiveStatus() {
+        return activeStatus;
     }
 
 }

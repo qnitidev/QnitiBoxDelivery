@@ -6,6 +6,23 @@ public class Config {
 
     public static final String USER_TOKEN = "userToken";
 
+    public static final String ORDER_ID = "orderid";
+    public static final String SELLER_NAME = "sellerName";
+    public static final String SELLER_LOCATION = "sellerLocation";
+    public static final String SELLER_PHONE = "sellerPhone";
+    public static final String RECEIVER_NAME = "receiverName";
+    public static final String RECEIVER_LOCATION = "receiverLocation";
+    public static final String RECEIVER_PHONE = "receiverPhone";
+    public static final String FOOD_TYPE = "foodType";
+
+    //For User
+    public static final String DE_ID2 = "dID2";
+    public static final String DE_NAME2 = "dName";
+    public static final String DE_EMAIL = "dEmail";
+    public static final String DE_LOCATION = "dLocation";
+    public static final String DE_PHONE = "dPhone";
+    public static final String DE_ACTIVE = "dActive";
+
     /*
     public static final String MENU_TYPE = "menuType";
     public static final String MENU_DAY = "menuDay";
@@ -62,13 +79,13 @@ public class Config {
     public static final String SELLER_PHONE2 = "sphoneID2";
     public static final String SELLER_LOCATION = "slocationID";
 
-
+    */
     public static final String LOGIN_URL = "https://gmartbox.cvmall.my/apps/seller/loginseller.php";
     //public static final String REGISTER_URL = "https://gmartbox.cvmall.my/apps/registerqniti.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
 //public static final String KEY_ID = "userIC";
-    public static final String KEY_PASSWORD = "userPass";
+    public static final String KEY_PASSWORD = "delivererPass";
 
     //If server response is equal to this that means login is successful
     public static final String LOGIN_SUCCESS = "success";
@@ -78,6 +95,6 @@ public class Config {
 
     //We will use this to store the boolean in sharedpreference to track user is loggedin or not
     public static final String LOGGEDIN_SHARED_PREF = "loggedin";
-    */
+
 
 }

@@ -54,12 +54,20 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/activeBtn"
+            android:id="@+id/activeBtnYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.1"
             android:background="@null"
-            android:src="@drawable/ic_qr_code" />
+            android:src="@drawable/ic_activeoff" />
+
+        <ImageButton
+            android:id="@+id/activeBtnNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:background="@null"
+            android:src="@drawable/ic_activeon" />
 
         <ImageButton
             android:id="@+id/logout"
@@ -77,13 +85,13 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageViewGone"
-        android:layout_marginTop="150dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:src="@drawable/ic_no_food" />
+    android:id="@+id/imageViewGone"
+    android:layout_marginTop="150dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:src="@drawable/ic_no_food" />
 
     <TextView
         android:id="@+id/textViewGone"
@@ -95,8 +103,28 @@
         android:textStyle="bold|italic"
         android:visibility="gone"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:text="You have no order" />
+        android:text="You have no available job" />
 
+    <ImageView
+        android:id="@+id/imageViewJobOff"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/ic_no_food" />
+
+    <TextView
+        android:id="@+id/textViewJobOff"
+        android:textColor="#b30000"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:visibility="gone"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:text="You currently inactive. Please click ACTIVE button to start receiving Job" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"

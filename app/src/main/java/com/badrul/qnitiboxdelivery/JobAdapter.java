@@ -42,9 +42,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
 
         holder.textSellerName.setText(job.getSellerName()); //getName
-        holder.textSellerLocation.setText("Pickup: "+job.getSellerLocation()); //GetICnum
+        holder.textSellerLocation.setText(job.getSellerAddress()); //GetICnum
         holder.textReceiverName.setText(job.getReceiverName());
-        holder.textReceiverLocation.setText("Send: "+job.getReceiverLocation()); //getStatus
+        holder.textReceiverLocation.setText(job.getReceiverAddress()); //getStatus
         holder.textFood.setText(job.getFoodName());  //getTotalPrice
 
         holder.test.setOnClickListener(new View.OnClickListener() {

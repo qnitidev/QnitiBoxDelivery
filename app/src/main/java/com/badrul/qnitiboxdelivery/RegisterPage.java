@@ -148,7 +148,7 @@ public class RegisterPage extends AppCompatActivity implements AdapterView.OnIte
                         protected Map<String, String> getParams() {
                             Map<String, String> params = new HashMap<String, String>();
                             params.put("delivererName", nm);
-                            params.put("deliverPhone", ph);
+                            params.put("delivererPhone", ph);
                             params.put("delivererEmail", em);
                             params.put("delivererPass", pss);
                             params.put("delivererLocation", locat);

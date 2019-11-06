@@ -5,25 +5,27 @@ public class Job {
     //private int userid;
     private String orderID;
     private String sellerName;
-    private String sellerLocation;
+    private String sellerAddress;
     private String sellerPhone;
     private String receiverName;
-    private String receiverLocation;
+    private String receiverAddress;
     private String receiverPhone;
     private String foodName;
     private String foodPrice;
+    private String orderStatus;
 
-    public Job(String orderID, String sellerName, String sellerLocation, String sellerPhone, String receiverName,String receiverLocation, String receiverPhone, String foodName, String foodPrice) {
+    public Job(String orderID, String sellerName, String sellerAddress, String sellerPhone, String receiverName,String receiverAddress, String receiverPhone, String foodName, String foodPrice, String orderStatus) {
 
         this.orderID = orderID;
         this.sellerName = sellerName;
-        this.sellerLocation = sellerLocation;
+        this.sellerAddress = sellerAddress;
         this.sellerPhone = sellerPhone;
         this.receiverName = receiverName;
-        this.receiverLocation = receiverLocation;
+        this.receiverAddress = receiverAddress;
         this.receiverPhone = receiverPhone;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
+        this.orderStatus = orderStatus;
 
     }
 
@@ -35,8 +37,8 @@ public class Job {
         return sellerName;
     }
 
-    public String getSellerLocation() {
-        return sellerLocation;
+    public String getSellerAddress() {
+        return sellerAddress;
     }
 
     public String getSellerPhone() {
@@ -48,8 +50,8 @@ public class Job {
         return receiverName;
     }
 
-    public String getReceiverLocation() {
-        return receiverLocation;
+    public String getReceiverAddress() {
+        return receiverAddress;
     }
 
     public String getReceiverPhone() {
@@ -62,6 +64,10 @@ public class Job {
 
     public String getFoodPrice() {
         return foodPrice;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
 }

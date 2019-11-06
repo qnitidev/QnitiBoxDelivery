@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -37,13 +38,15 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
 
     List<Job> jobList;
-    ImageButton logout;
+    ImageButton logout,activeOn,activeOff;
 
 
     //the recyclerview
@@ -55,22 +58,27 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
     String image;
     TextView userNama_tx;
     TextView userCredit_tx;
-    ImageView imgGone;
-    TextView txtGone;
+    ImageView imgGone,imgJobOff;
+    TextView txtGone,txtJobOff;
     //int curCheckPosition = 0;
     String sellerLocation;
     String currentDate;
     TextView showtodayQTT;
     String sellerID;
+    String delivererLocation;
+    String activeStatus;
+    String delivererID;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View myView = inflater.inflate(R.layout.fragment_processing, container, false);
+        View myView = inflater.inflate(R.layout.fragment_job, container, false);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Config.SHARED_PREF_NAME, getActivity().getApplicationContext().MODE_PRIVATE);
-        //String userNama = sharedPreferences.getString(Config.ID_SHARED_PREF,"Not Available");
+        delivererLocation = sharedPreferences.getString(Config.DE_LOCATION,"Not Available");
+        activeStatus = sharedPreferences.getString(Config.DE_ACTIVE,"NO");
+        delivererID = sharedPreferences.getString(Config.DE_ID2,"Not Available");
 
         currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
         //logout =myView.findViewById(R.id.logoutBtn);
@@ -79,9 +87,12 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
         logout = myView.findViewById(R.id.logout);
         imgGone = myView.findViewById(R.id.imageViewGone);
         txtGone = myView.findViewById(R.id.textViewGone);
+        imgJobOff = myView.findViewById(R.id.imageViewJobOff);
+        txtJobOff = myView.findViewById(R.id.textViewJobOff);
+        activeOn = myView.findViewById(R.id.activeBtnYes);
+        activeOff = myView.findViewById(R.id.activeBtnNo);
 
-
-        //userNama_tx.setText(userNama);
+        //userNama_tx.setText(delivererLocation);
 
         // Set the layout manager to your recyclerview and reverse the position
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -96,10 +107,214 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
 
         jobList = new ArrayList<>();
 
+        if (activeStatus.equalsIgnoreCase("YES")){
 
-        //this method will fetch and parse json
+            activeOff.setVisibility(View.VISIBLE);
+            activeOn.setVisibility(View.GONE);
+          imgJobOff.setVisibility(View.GONE);
+           txtJobOff.setVisibility(View.GONE);
+            loadJob();
 
-        loadJob();
+        }else{
+
+           activeOff.setVisibility(View.GONE);
+           activeOn.setVisibility(View.VISIBLE);
+            imgJobOff.setVisibility(View.VISIBLE);
+          txtJobOff.setVisibility(View.VISIBLE);
+
+        }
+
+        activeOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               activeOff.setVisibility(View.VISIBLE);
+               activeOn.setVisibility(View.GONE);
+               imgJobOff.setVisibility(View.GONE);
+               txtJobOff.setVisibility(View.GONE);
+
+                final ProgressDialog loading = ProgressDialog.show(getActivity(),"Please Wait","Contacting Server",false,false);
+                //Creating a string request
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.ACTIVE_STATUS,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+
+                                //If we are getting success from server
+                                if(response.equalsIgnoreCase("Success")){
+
+                                    loading.dismiss();
+                                    //Creating a shared preference
+                                    SharedPreferences sharedPreferences = getActivity().getApplicationContext().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+                                    //Creating editor to store values to shared preferences
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                                    //Adding values to editor
+                                    editor.putString(Config.DE_ACTIVE,"YES");
+
+                                    //Saving values to editor
+                                    editor.commit();
+
+                                    Toast.makeText(getActivity(),"You now active. You will receive job notification when available",
+                                            Toast.LENGTH_LONG).show();
+
+                                    JobFragment fragment = (JobFragment)
+                                            getFragmentManager().findFragmentById(R.id.fragment_container);
+
+                                    getFragmentManager().beginTransaction()
+                                            .detach(fragment)
+                                            .attach(fragment)
+                                            .commit();
+
+
+                                }else{
+                                    //If the server response is not success
+                                    //Displaying an error message on toast
+                                    loading.dismiss();
+                                    Toast.makeText(getActivity(), "Error. Please try again", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                //You can handle error here if you want
+                                loading.dismiss();
+                                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                    Toast.makeText(getActivity(),"No internet . Please check your connection",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                                else{
+
+                                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }){
+
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params = new HashMap<String, String>();
+                        //Adding parameters to request
+                        params.put("delivererID", delivererID);
+                        params.put("activeStatus", "YES");
+
+                        //returning parameter
+                        return params;
+                    }
+                };
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        30000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                //Adding the string request to the queue
+                RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+                requestQueue.add(stringRequest);
+
+            }
+        });
+
+
+        activeOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               activeOff.setVisibility(View.GONE);
+                activeOn.setVisibility(View.VISIBLE);
+                imgJobOff.setVisibility(View.VISIBLE);
+               txtJobOff.setVisibility(View.VISIBLE);
+
+                final ProgressDialog loading = ProgressDialog.show(getActivity(),"Please Wait","Contacting Server",false,false);
+                //Creating a string request
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.ACTIVE_STATUS,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+
+                                //If we are getting success from server
+                                if(response.equalsIgnoreCase("Success")){
+
+                                    loading.dismiss();
+                                    //Creating a shared preference
+                                    SharedPreferences sharedPreferences = getActivity().getApplicationContext().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+                                    //Creating editor to store values to shared preferences
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                                    //Adding values to editor
+                                    editor.putString(Config.DE_ACTIVE,"NO");
+
+                                    //Saving values to editor
+                                    editor.commit();
+
+                                    Toast.makeText(getActivity(),"You now inactive. You will no longer receive job notification",
+                                            Toast.LENGTH_LONG).show();
+
+                                    JobFragment fragment = (JobFragment)
+                                            getFragmentManager().findFragmentById(R.id.fragment_container);
+
+                                    getFragmentManager().beginTransaction()
+                                            .detach(fragment)
+                                            .attach(fragment)
+                                            .commit();
+
+
+                                }else{
+                                    //If the server response is not success
+                                    //Displaying an error message on toast
+                                    loading.dismiss();
+                                    Toast.makeText(getActivity(), "Error. Please try again", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                //You can handle error here if you want
+                                loading.dismiss();
+                                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                    Toast.makeText(getActivity(),"No internet . Please check your connection",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                                else{
+
+                                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }){
+
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params = new HashMap<String, String>();
+                        //Adding parameters to request
+                        params.put("delivererID", delivererID);
+                        params.put("activeStatus", "NO");
+
+                        //returning parameter
+                        return params;
+                    }
+                };
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        30000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                //Adding the string request to the queue
+                RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+                requestQueue.add(stringRequest);
+
+            }
+        });
+        /*JobFragment fragment = (JobFragment)
+                getFragmentManager().findFragmentById(R.id.fragment_container);
+
+        getFragmentManager().beginTransaction()
+                .detach(fragment)
+                .attach(fragment)
+                .commit();*/
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,7 +374,7 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
 
         final ProgressDialog loading = ProgressDialog.show(getActivity(),"Please Wait","Contacting Server",false,false);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Config.ORDER_STATUS_PROCESSING+delivererLocation,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Config.EMPTY_JOB+delivererLocation,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -177,13 +392,14 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
                                 jobList.add(new Job(
                                         job.getString("orderID"),
                                         job.getString("sellerName"),
-                                        job.getString("sellerLocation"),
+                                        job.getString("sellerAddress"),
                                         job.getString("sellerPhone"),
-                                        job.getString("receiverName"),
-                                        job.getString("receiverLocation"),
-                                        job.getString("receiverPhone"),
+                                        job.getString("nameID"),
+                                        job.getString("puLocation"),
+                                        job.getString("phoneID"),
                                         job.getString("orderType"),
-                                        job.getString("totalPrice")
+                                        job.getString("totalPrice"),
+                                        job.getString("orderStatus")
 
                                 ));
                             }
@@ -269,12 +485,14 @@ public class JobFragment extends Fragment implements JobAdapter.OnItemClicked{
 
         editor.putString(Config.ORDER_ID, job.getOrderID());
         editor.putString(Config.SELLER_NAME, job.getSellerName());
-        editor.putString(Config.SELLER_LOCATION, job.getSellerLocation());
+        editor.putString(Config.SELLER_LOCATION, job.getSellerAddress());
         editor.putString(Config.SELLER_PHONE, job.getSellerPhone());
         editor.putString(Config.RECEIVER_NAME, job.getReceiverName());
-        editor.putString(Config.RECEIVER_LOCATION, job.getReceiverLocation());
+        editor.putString(Config.RECEIVER_LOCATION, job.getReceiverAddress());
         editor.putString(Config.RECEIVER_PHONE, job.getReceiverPhone());
         editor.putString(Config.FOOD_TYPE, job.getFoodName());
+        editor.putString(Config.FOOD_PRICE, job.getFoodPrice());
+        editor.putString(Config.ORDER_STATUS, job.getOrderStatus());
 
 
         // Saving values to editor

@@ -2,6 +2,17 @@ package com.badrul.qnitiboxdelivery;
 
 public class Config {
 
+    public static final String PROFILE = "https://gmartbox.cvmall.my/apps/deliverer/getdelivererinfo.php?delivererEmail=";
+
+    public static final String EMPTY_JOB = "https://gmartbox.cvmall.my/apps/deliverer/emptyjobdisplay.php?orderLocation=";
+
+    public static final String ACTIVE_STATUS = "https://gmartbox.cvmall.my/apps/deliverer/activestatus.php";
+
+    public static final String ORDER_STATUS_PROCESSING = "https://gmartbox.cvmall.my/apps/deliverer/orderstatusprocessing.php?delivererID=";
+
+    public static final String ORDER_STATUS_COMPLETE = "https://gmartbox.cvmall.my/apps/deliverer/orderstatuscomplete.php?delivererID=";
+
+
     public static final String SHARED_PREF_NAME = "jimatBox";
 
     public static final String USER_TOKEN = "userToken";
@@ -14,6 +25,8 @@ public class Config {
     public static final String RECEIVER_LOCATION = "receiverLocation";
     public static final String RECEIVER_PHONE = "receiverPhone";
     public static final String FOOD_TYPE = "foodType";
+    public static final String FOOD_PRICE = "foodPrice";
+    public static final String ORDER_STATUS = "orderStatus";
 
     //For User
     public static final String DE_ID2 = "dID2";
@@ -80,8 +93,8 @@ public class Config {
     public static final String SELLER_LOCATION = "slocationID";
 
     */
-    public static final String LOGIN_URL = "https://gmartbox.cvmall.my/apps/seller/loginseller.php";
-    //public static final String REGISTER_URL = "https://gmartbox.cvmall.my/apps/registerqniti.php";
+    public static final String LOGIN_URL = "https://gmartbox.cvmall.my/apps/deliverer/logindeliverer.php";
+    public static final String REGISTER_URL = "https://gmartbox.cvmall.my/apps/deliverer/registerdeliverer.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
 //public static final String KEY_ID = "userIC";

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QnitiBox Deilvery</string>
+    <string name="app_name">QnitiBox Delivery</string>
     <string name="title_job">Available Job</string>
     <string name="title_processing">Processing</string>
     <string name="title_complete">Complete</string>

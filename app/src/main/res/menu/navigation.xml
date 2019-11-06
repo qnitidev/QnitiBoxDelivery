@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_job"
-        android:icon="@drawable/ic_qr_code"
+        android:icon="@drawable/ic_newjob"
         android:title="@string/title_job" />
 
     <item

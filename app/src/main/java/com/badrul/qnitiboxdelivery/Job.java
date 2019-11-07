@@ -13,8 +13,9 @@ public class Job {
     private String foodName;
     private String foodPrice;
     private String orderStatus;
+    private String delivererID;
 
-    public Job(String orderID, String sellerName, String sellerAddress, String sellerPhone, String receiverName,String receiverAddress, String receiverPhone, String foodName, String foodPrice, String orderStatus) {
+    public Job(String orderID, String sellerName, String sellerAddress, String sellerPhone, String receiverName,String receiverAddress, String receiverPhone, String foodName, String foodPrice, String orderStatus, String delivererID) {
 
         this.orderID = orderID;
         this.sellerName = sellerName;
@@ -26,6 +27,7 @@ public class Job {
         this.foodName = foodName;
         this.foodPrice = foodPrice;
         this.orderStatus = orderStatus;
+        this.delivererID = delivererID;
 
     }
 
@@ -68,6 +70,10 @@ public class Job {
 
     public String getOrderStatus() {
         return orderStatus;
+    }
+
+    public String getDelivererID() {
+        return delivererID;
     }
 
 }

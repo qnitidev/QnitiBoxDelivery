@@ -103,7 +103,7 @@
         android:textStyle="bold|italic"
         android:visibility="gone"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:text="You have no available job" />
+        android:text="No new job available currently" />
 
     <ImageView
         android:id="@+id/imageViewJobOff"

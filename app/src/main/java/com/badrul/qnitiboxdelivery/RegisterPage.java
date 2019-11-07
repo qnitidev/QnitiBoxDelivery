@@ -94,7 +94,7 @@ public class RegisterPage extends AppCompatActivity implements AdapterView.OnIte
                 }
                 else if (!pss.equals(conpss)) {
                     Toast.makeText(getApplicationContext(),
-                            "Your Password not Equal", Toast.LENGTH_LONG).show();
+                            "Your password does not match", Toast.LENGTH_LONG).show();
                 }else if(locat.equalsIgnoreCase("")) {
                     Toast.makeText(getApplicationContext(), "Please select your location",
                             Toast.LENGTH_LONG).show();

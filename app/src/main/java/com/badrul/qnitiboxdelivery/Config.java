@@ -8,6 +8,12 @@ public class Config {
 
     public static final String ACTIVE_STATUS = "https://gmartbox.cvmall.my/apps/deliverer/activestatus.php";
 
+    public static final String ACCEPT_JOB_URL = "https://gmartbox.cvmall.my/apps/deliverer/acceptjob.php";
+
+    public static final String ACCEPT_ORDER_URL = "https://gmartbox.cvmall.my/apps/deliverer/acceptorder.php";
+
+    public static final String CANCEL_ORDER_URL = "https://gmartbox.cvmall.my/apps/deliverer/cancelorder.php";
+
     public static final String ORDER_STATUS_PROCESSING = "https://gmartbox.cvmall.my/apps/deliverer/orderstatusprocessing.php?delivererID=";
 
     public static final String ORDER_STATUS_COMPLETE = "https://gmartbox.cvmall.my/apps/deliverer/orderstatuscomplete.php?delivererID=";
@@ -27,6 +33,7 @@ public class Config {
     public static final String FOOD_TYPE = "foodType";
     public static final String FOOD_PRICE = "foodPrice";
     public static final String ORDER_STATUS = "orderStatus";
+    public static final String ORDER_DELIVER_ID = "orderDeliverID";
 
     //For User
     public static final String DE_ID2 = "dID2";

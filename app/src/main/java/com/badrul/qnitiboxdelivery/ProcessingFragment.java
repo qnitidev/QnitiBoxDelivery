@@ -189,7 +189,8 @@ public class ProcessingFragment extends Fragment implements JobAdapter.OnItemCli
                                         job.getString("phoneID"),
                                         job.getString("orderType"),
                                         job.getString("totalPrice"),
-                                        job.getString("orderStatus")
+                                        job.getString("orderStatus"),
+                                        job.getString("delivererID")
 
                                 ));
                             }
@@ -283,6 +284,7 @@ public class ProcessingFragment extends Fragment implements JobAdapter.OnItemCli
         editor.putString(Config.FOOD_TYPE, job.getFoodName());
         editor.putString(Config.FOOD_PRICE, job.getFoodPrice());
         editor.putString(Config.ORDER_STATUS, job.getOrderStatus());
+        editor.putString(Config.ORDER_DELIVER_ID, job.getDelivererID());
 
 
         // Saving values to editor

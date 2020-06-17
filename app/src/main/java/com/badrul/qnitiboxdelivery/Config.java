@@ -2,21 +2,21 @@ package com.badrul.qnitiboxdelivery;
 
 public class Config {
 
-    public static final String PROFILE = "http://gmartbox.cvmall.my/apps/deliverer/getdelivererinfo.php?delivererEmail=";
+    public static final String PROFILE = "https://qnitibox.qniti.com/apps/deliverer/getdelivererinfo.php?delivererEmail=";
 
-    public static final String EMPTY_JOB = "http://gmartbox.cvmall.my/apps/deliverer/emptyjobdisplay.php?orderLocation=";
+    public static final String EMPTY_JOB = "https://qnitibox.qniti.com/apps/deliverer/emptyjobdisplay.php?orderLocation=";
 
-    public static final String ACTIVE_STATUS = "http://gmartbox.cvmall.my/apps/deliverer/activestatus.php";
+    public static final String ACTIVE_STATUS = "https://qnitibox.qniti.com/apps/deliverer/activestatus.php";
 
-    public static final String ACCEPT_JOB_URL = "http://gmartbox.cvmall.my/apps/deliverer/acceptjob.php";
+    public static final String ACCEPT_JOB_URL = "https://qnitibox.qniti.com/apps/deliverer/acceptjob.php";
 
-    public static final String ACCEPT_ORDER_URL = "http://gmartbox.cvmall.my/apps/deliverer/acceptorder.php";
+    public static final String ACCEPT_ORDER_URL = "https://qnitibox.qniti.com/apps/deliverer/acceptorder.php";
 
-    public static final String CANCEL_ORDER_URL = "http://gmartbox.cvmall.my/apps/deliverer/cancelorder.php";
+    public static final String CANCEL_ORDER_URL = "https://qnitibox.qniti.com/apps/deliverer/cancelorder.php";
 
-    public static final String ORDER_STATUS_PROCESSING = "http://gmartbox.cvmall.my/apps/deliverer/orderstatusprocessing.php?delivererID=";
+    public static final String ORDER_STATUS_PROCESSING = "https://qnitibox.qniti.com/apps/deliverer/orderstatusprocessing.php?delivererID=";
 
-    public static final String ORDER_STATUS_COMPLETE = "http://gmartbox.cvmall.my/apps/deliverer/orderstatuscomplete.php?delivererID=";
+    public static final String ORDER_STATUS_COMPLETE = "https://qnitibox.qniti.com/apps/deliverer/orderstatuscomplete.php?delivererID=";
 
 
     public static final String SHARED_PREF_NAME = "jimatBox";
@@ -49,23 +49,23 @@ public class Config {
     public static final String ORDER_DATE = "orderDate";
     public static final String ORDER_TIME = "orderTime";
 
-    public static final String ACCEPT_ORDER_URL = "http://gmartbox.cvmall.my/apps/seller/acceptorder.php";
+    public static final String ACCEPT_ORDER_URL = "https://qnitibox.qniti.com/apps/seller/acceptorder.php";
 
-    public static final String CANCEL_ORDER_URL = "http://gmartbox.cvmall.my/apps/seller/cancelorder.php";
+    public static final String CANCEL_ORDER_URL = "https://qnitibox.qniti.com/apps/seller/cancelorder.php";
 
 
-    public static final String FEEDBACK_URL = "http://gmartbox.cvmall.my/apps/admin/feedback.php";
+    public static final String FEEDBACK_URL = "https://qnitibox.qniti.com/apps/admin/feedback.php";
 
     public static final String TOTAL_FOOD_PRICE = "totalfoodPrice";
 
-    public static final String SCANNER_URL = "http://gmartbox.cvmall.my/apps/seller/scanner.php?orderID=";
+    public static final String SCANNER_URL = "https://qnitibox.qniti.com/apps/seller/scanner.php?orderID=";
 
-    public static final String ORDER_STATUS_COMPLETE = "http://gmartbox.cvmall.my/apps/seller/orderstatuscomplete.php?orderLocation=";
-    public static final String ORDER_STATUS_PROCESSING = "http://gmartbox.cvmall.my/apps/seller/orderstatusprocessing.php?orderLocation=";
-    public static final String PROFILE = "http://gmartbox.cvmall.my/apps/seller/getsellerinfo.php?sellerUserName=";
+    public static final String ORDER_STATUS_COMPLETE = "https://qnitibox.qniti.com/apps/seller/orderstatuscomplete.php?orderLocation=";
+    public static final String ORDER_STATUS_PROCESSING = "https://qnitibox.qniti.com/apps/seller/orderstatusprocessing.php?orderLocation=";
+    public static final String PROFILE = "https://qnitibox.qniti.com/apps/seller/getsellerinfo.php?sellerUserName=";
 
-    public static final String PROCESSING_CHECK_TODAY_QTT = "http://gmartbox.cvmall.my/apps/seller/gettodayqttprocessing.php?currentDate=";
-    public static final String COMPLETE_CHECK_TODAY_QTT = "http://gmartbox.cvmall.my/apps/seller/gettodayqttcomplete.php?currentDate=";
+    public static final String PROCESSING_CHECK_TODAY_QTT = "https://qnitibox.qniti.com/apps/seller/gettodayqttprocessing.php?currentDate=";
+    public static final String COMPLETE_CHECK_TODAY_QTT = "https://qnitibox.qniti.com/apps/seller/gettodayqttcomplete.php?currentDate=";
     //FOR ORDER
     public static final String ORDER_ID = "orderid";
     public static final String CARD_ID = "cardID";
@@ -100,8 +100,8 @@ public class Config {
     public static final String SELLER_LOCATION = "slocationID";
 
     */
-    public static final String LOGIN_URL = "http://gmartbox.cvmall.my/apps/deliverer/logindeliverer.php";
-    public static final String REGISTER_URL = "http://gmartbox.cvmall.my/apps/deliverer/registerdeliverer.php";
+    public static final String LOGIN_URL = "https://qnitibox.qniti.com/apps/deliverer/logindeliverer.php";
+    public static final String REGISTER_URL = "https://qnitibox.qniti.com/apps/deliverer/registerdeliverer.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
 //public static final String KEY_ID = "userIC";

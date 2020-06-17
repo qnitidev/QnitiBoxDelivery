@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
@@ -79,7 +80,7 @@ public class LoginPage extends AppCompatActivity {
         // Button btnLinkToRegister =(Button)findViewById(R.id.btnLinkToRegisterScreen);
         //Button tos =(Button)findViewById(R.id.tos);
         // ImageButton exit =(ImageButton)findViewById(R.id.exit);
-
+        FirebaseApp.initializeApp(LoginPage.this);
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override

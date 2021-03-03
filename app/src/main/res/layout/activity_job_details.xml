@@ -39,7 +39,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="2"
                     android:layout_marginLeft="15dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textSize="14dp"
                     android:background="@drawable/textboxcornergrey"
                     android:gravity="center"
                     android:padding="10dp"
@@ -67,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textSize="14dp"
                     android:layout_weight="2"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/textboxcornergrey"
@@ -110,7 +110,7 @@
                             android:layout_gravity="center"
                             android:text="Nasi lemak"
                             android:layout_marginLeft="15dp"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textSize="18dp"
                             android:textColor="@color/colorHeaderDark"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -129,18 +129,21 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:textSize="14dp"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Seller Name" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:id="@+id/txtSellerName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TextView" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:layout_marginTop="15dp"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
@@ -148,6 +151,7 @@
                             android:text="Receiver Name" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:id="@+id/txtReceiverName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -165,19 +169,21 @@
                         android:orientation="vertical">
 
                         <TextView
-
+                            android:textSize="14dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:text="Seller Phone Number" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:id="@+id/txtSellerPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TextView" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:layout_marginTop="15dp"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
@@ -185,6 +191,7 @@
                             android:text="Receiver Phone Number" />
 
                         <TextView
+                            android:textSize="14dp"
                             android:id="@+id/txtReceiverPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -203,7 +210,7 @@
 
                     <TextView
 
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textSize="22dp"
                         android:layout_width="match_parent"
                         android:textStyle="bold"
                         android:layout_weight="1"
@@ -216,7 +223,7 @@
 
                         android:textColor="@color/colorNextButton"
                         android:id="@+id/txtFoodPrice"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textSize="22dp"
                         android:layout_width="match_parent"
                         android:textStyle="bold"
                         android:layout_weight="1"
@@ -234,7 +241,7 @@
                     android:orientation="vertical">
 
                     <TextView
-
+                        android:textSize="14dp"
                         android:id="@+id/showqrtxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -256,7 +263,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/buttoncornergradientgreen"
+                        android:background="@drawable/buttoncornerblack10"
                         android:text="Accept Job"
                         android:textColor="#ffffff"
                         android:visibility="visible" />
@@ -266,7 +273,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/buttoncornerredgrad2"
+                        android:background="@drawable/buttoncornerred10"
                         android:text="Scan QR"
                         android:textColor="#ffffff"
                         android:visibility="visible" />
@@ -286,7 +293,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:visibility="gone"
-                            android:background="@drawable/buttoncornerredline"
+                            android:background="@drawable/buttoncornerwhitered10"
                             android:text="Cancel"
                             android:textColor="#B30000" />
 
@@ -298,7 +305,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:visibility="gone"
-                            android:background="@drawable/buttoncornerredgrad2"
+                            android:background="@drawable/buttoncornerred10"
                             android:text="Accept"
                             android:textColor="#ffffff" />
 

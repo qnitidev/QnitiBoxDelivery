@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
@@ -77,6 +78,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
             textFood = itemView.findViewById(R.id.textFood);
             //imageView = itemView.findViewById(R.id.imageView);
         }
+    }
+
+    //This method will filter the list
+//here we are passing the filtered data
+//and assigning it to the list with notifydatasetchanged method
+    public void filterList(ArrayList<Job> filterdNames) {
+        this.jobList = filterdNames;
+        notifyDataSetChanged();
     }
     public void setOnClick(OnItemClicked onClick)
     {

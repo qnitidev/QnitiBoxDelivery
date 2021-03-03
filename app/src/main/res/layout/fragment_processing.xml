@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff"
+    android:background="@color/colorBg"
 
     android:orientation="vertical">
     <!--<LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="10dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:text="Nama" />
 
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textStyle="bold"
             android:text="Credit" />
@@ -38,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/redgrad"
+        android:background="@color/red"
         android:orientation="horizontal">
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:text="Welcome"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="18dp"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
             android:gravity="end"
             android:text="Kredit"
             android:layout_marginRight="20dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="18dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
@@ -80,6 +80,18 @@
             android:tint="#ffffff"/>
 
     </LinearLayout>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:id="@+id/editTextSearch"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:background="@drawable/layoutcornerwhite10"
+        android:drawableRight="@drawable/ic_magnifier_24"
+        android:hint="Search..." />
 
     <ImageView
         android:id="@+id/imageViewGone"
@@ -99,11 +111,10 @@
         android:gravity="center"
         android:textStyle="bold|italic"
         android:visibility="gone"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18dp"
         android:text="You have no order" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
         android:id="@+id/recylcerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
